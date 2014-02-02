@@ -42,12 +42,12 @@ def XT_ProcessItemEx(nItem, hItem, reserved):
    for p2p_installer in p2p_installers:
       if re.search(p2p_installer, file_name, re.IGNORECASE):
          #XWF.AddToReportTable(nItem, 'p2p installers')
-		 XWF.AddComment(nItem, 'p2p installers', 0)
+	 XWF.AddComment(nItem, 'p2p installers', 0)
 
    p2p_files = [r'uTorrent$', r'BitTorrent$', r'Ares$', r'eMule$', r'FrostWire \d$', r'Vuze$', r'DC\+\+$', r'.*\.torrent$']
    for p2p_file in p2p_files:
       if re.search(p2p_file, file_name, re.IGNORECASE):
-	     # NIE MOZNA DODAWAC FOLDEROW DO RAPORT TABLE
+	 # nie można dodawać folderów do raport table
          XWF.AddComment(nItem, 'p2p files', 2)
 		 
    return
