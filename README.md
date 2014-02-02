@@ -1,4 +1,1 @@
-python
-======
-
 simple python scripts
