@@ -10,7 +10,7 @@ import sys
 import argparse
 
 parser = argparse.ArgumentParser(
-    description='Check for PEiD and/or Yara signatures')
+    description='check for PEiD and/or Yara signatures')
 
 parser.add_argument(dest='filenames', metavar='filename', nargs='*')
 
@@ -20,15 +20,15 @@ parser.add_argument('-vv', dest='veryverbose',
                     action='store_true', help='very verbose')
 
 parser.add_argument(
-    '-p', dest='peid', action='store', help='PEiD signatures file')
+    '-p', dest='peid', action='store', help='peid signatures file')
 
 parser.add_argument(
-    '-y', dest='yara', action='store', help='Yara signatures file')
+    '-y', dest='yara', action='store', help='yara signatures file')
 
 args = parser.parse_args()
 
 if not args.peid and not args.yara:
-    sys.exit('You need define at least one signatures file')
+    sys.exit('you need define at least one signatures file')
 
 if args.peid:
     try:
@@ -49,16 +49,16 @@ if args.peid:
         # sigs = peutils.SignatureDatabase('userdb.txt')
         sigs = peutils.SignatureDatabase(args.peid)  # PEiD signatures
     except IOError:
-        sys.exit('PEiD signatures file does not exist')
+        sys.exit('peid signatures file does not exist')
 
 if args.yara:
     try:
         rules = yara.compile(args.yara)  # Yara signatures
     except IOError:
-        sys.exit('Yara signatures file does not exist')
+        sys.exit('yara signatures file does not exist')
 
 if not args.filenames:
-    sys.exit('You must select at least one file')
+    sys.exit('you must select at least one file')
 
 for file in args.filenames:
     print(file)
