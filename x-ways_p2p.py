@@ -2,6 +2,8 @@
 X-Ways Forensics X-Tensions
 P2P Forensic
 (C) 2012 Adam Ziaja <adam@adamziaja.com> http://adamziaja.com
+
+https://www.youtube.com/watch?v=64VqNpE3qsM&hd=1
 '''
 
 import OutputRedirector
