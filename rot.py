@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # ROT-n decryptor (Caesar cipher)
-# usage: python rot.py "ZCZL YHZIZ ZCZLYHZIZ.BNL"
+# usage: python rot.py ZCZL YHZIZ ZCZLYHZIZ.BNL
 
 # (C) 2014 Adam Ziaja <adam@adamziaja.com> http://adamziaja.com
 
