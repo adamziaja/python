@@ -29,7 +29,7 @@ def rot(char):
                 clear += c
         print clear
 
-cipher = ''.join(sys.argv[1:])
+cipher = ' '.join(sys.argv[1:])
 
 if cipher:
     rot('-')
