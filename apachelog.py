@@ -19,7 +19,7 @@ class bcolors:
     red = '\033[91m'
     end = '\033[0m'
 
-with open('access.log') as f:
+with open('/var/log/apache2/access.log') as f: # debian/ubuntu
     for line in f:
         print bcolors.green + line + bcolors.end,
         if IP(line.split(' ')[0]).version() is 4 and gi.org_by_name(line.split(' ')[0]) is not None:
