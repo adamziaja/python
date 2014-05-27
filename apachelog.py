@@ -26,4 +26,4 @@ with open('/var/log/apache2/access.log') as f: # debian/ubuntu
             # if 'ASXXXXX' in gi.org_by_name(line.split(' ')[0]):
             print bcolors.yellow + gi.org_by_name(line.split(' ')[0]) + bcolors.end
         else:
-            print bcolors.red + line.split(' ')[0] + ' is IPv6' + bcolors.end
+            print bcolors.red + line.split(' ')[0] + ' is not in the GeoIP database' + bcolors.end
