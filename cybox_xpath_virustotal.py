@@ -5,6 +5,11 @@
 
 from lxml import etree # http://lxml.de/xpathxslt.html#the-xpath-method
 
+import simplejson # python-simplejson - simple, fast, extensible JSON encoder/decoder for Python
+import urllib
+import urllib2
+import time
+
 namespaces = {
 	'xsi': 'http://www.w3.org/2001/XMLSchema-instance',
 	'stix': 'http://stix.mitre.org/stix-1',
@@ -29,7 +34,16 @@ namespaces = {
 	'WinDriverObj': 'http://cybox.mitre.org/objects#WinDriverObject-2'
 }
 
-f = 'Appendix_G_IOCs_Full.xml' # http://stix.mitre.org/downloads/APT1-STIX.zip
+url = "https://www.virustotal.com/vtapi/v2/file/report"
+f = 'APT1-STIX/Appendix_G_IOCs_Full.xml' # http://stix.mitre.org/downloads/APT1-STIX.zip
+
 doc = etree.parse(f)
 for r in doc.xpath('/stix:STIX_Package/stix:Observables/cybox:Observable/cybox:Object/cybox:Properties/FileObj:Hashes/cyboxCommon:Hash/cyboxCommon:Simple_Hash_Value', namespaces=namespaces):
 	print r.text
+	parameters = {"resource": r.text, "apikey": "XXXXXXXXXX"} # Menu -> My API Key
+	data = urllib.urlencode(parameters)
+	req = urllib2.Request(url, data)
+	response = urllib2.urlopen(req)
+	json = response.read()
+	print json
+	time.sleep(15) # VirusTotal API request rate - 4 requests/minute
