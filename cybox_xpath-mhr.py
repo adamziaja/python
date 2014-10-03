@@ -5,7 +5,8 @@
 
 from lxml import etree # http://lxml.de/xpathxslt.html#the-xpath-method
 import hashlib
-from cymru.mhr.dns import DNSClient as mhr # http://www.team-cymru.org/Services/MHR/
+# http://www.team-cymru.org/Services/MHR/
+from cymru.mhr.dns import DNSClient as mhr # pip install cymru-services
 
 namespaces = {
 	'xsi': 'http://www.w3.org/2001/XMLSchema-instance',
