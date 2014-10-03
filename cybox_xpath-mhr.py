@@ -33,7 +33,7 @@ namespaces = {
 }
 
 client=mhr()
-f = 'APT1-STIX/Appendix_G_IOCs_Full.xml' # http://stix.mitre.org/downloads/APT1-STIX.zip
+f = 'Appendix_G_IOCs_Full.xml' # http://stix.mitre.org/downloads/APT1-STIX.zip
 doc = etree.parse(f)
 for r in doc.xpath('/stix:STIX_Package/stix:Observables/cybox:Observable/cybox:Object/cybox:Properties/FileObj:Hashes/cyboxCommon:Hash/cyboxCommon:Simple_Hash_Value', namespaces=namespaces):
 	print r.text
