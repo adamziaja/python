@@ -14,12 +14,16 @@ unique_probe = []
 def Handler(pkt):
     if pkt.haslayer(Dot11): # 802.11
         if pkt.type == 0 and pkt.subtype == 4: # mgmt, probe request
-            ssid_mac = pkt.info + " " + pkt.addr2
+            ssid_mac = pkt.info + "_" + pkt.addr2
             if ssid_mac not in unique_probe and len(pkt.info) > 0:
-                unique_probe.append(pkt.info + " " + pkt.addr2)
+                unique_probe.append(pkt.info + "_" + pkt.addr2)
                 mac = ":".join(pkt.addr2.split(":")[:3]).upper()
-                vendor = "\n".join(line for line in manuf.splitlines() if line.startswith(mac)).split("# ")[1]
+                try:
+                    vendor = "\n".join(line for line in manuf.splitlines() if line.startswith(mac)).split("# ")[1]
+                except IndexError:
+                    vendor = "unknown"
                 print "%s (%s %s)" % (pkt.info, pkt.addr2, vendor)
                 #print pkt.show()
+                pkt.pdfdump(filename=ssid_mac + ".pdf") # sudo apt-get update && sudo apt-get install -y python-pyx
 
 sniff(iface="mon0", count=0, prn=Handler, store=0) # sudo rfkill unblock wifi && sudo airmon-ng start wlan0
