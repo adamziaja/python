@@ -16,7 +16,7 @@ def Handler(pkt):
         if pkt.type == 0 and pkt.subtype == 4: # mgmt, probe request
             ssid_mac = pkt.info + "_" + pkt.addr2
             if ssid_mac not in unique_probe and len(pkt.info) > 0:
-                unique_probe.append(pkt.info + "_" + pkt.addr2)
+                unique_probe.append(ssid_mac)
                 mac = ":".join(pkt.addr2.split(":")[:3]).upper()
                 try:
                     vendor = "\n".join(line for line in manuf.splitlines() if line.startswith(mac)).split("# ")[1]
