@@ -16,6 +16,6 @@ def Handler(pkt):
     print pkt.show()
     global i
     i += 1
-    pkt.pdfdump(filename=str(i) + ".pdf")
+    pkt.pdfdump(filename=str(i) + ".pdf") # sudo apt-get update && sudo apt-get install -y python-pyx
 
-sniff(offline="file.pcap", prn=Handler)
+sniff(offline="file.pcap", prn=Handler) # file.pcap
