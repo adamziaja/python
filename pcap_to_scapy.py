@@ -6,13 +6,14 @@
 # (C) 2014 Adam Ziaja <adam@adamziaja.com> http://adamziaja.com
 
 from scapy.all import *
+from termcolor import colored
 
 i = 0
 
 def Handler(pkt):
-    print pkt.summary()
     #print pkt.show()
-    #print pkt.command()
+    print colored(pkt.summary(), 'green')
+    print colored(pkt.command(), 'yellow')
     global i
     i += 1
     pkt.pdfdump(filename=str(i) + ".pdf") # sudo apt-get update && sudo apt-get install -y python-pyx
