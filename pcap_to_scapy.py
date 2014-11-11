@@ -10,9 +10,9 @@ from scapy.all import *
 i = 0
 
 def Handler(pkt):
-    #if pkt.haslayer(Dot11): # 802.11
-        #if pkt.type == 0 and pkt.subtype == 8: # https://en.wikipedia.org/wiki/Beacon_frame
-    print pkt.show()
+    print pkt.summary()
+    #print pkt.show()
+    #print pkt.command()
     global i
     i += 1
     pkt.pdfdump(filename=str(i) + ".pdf") # sudo apt-get update && sudo apt-get install -y python-pyx
