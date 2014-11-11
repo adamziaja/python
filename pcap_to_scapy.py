@@ -6,7 +6,7 @@
 # (C) 2014 Adam Ziaja <adam@adamziaja.com> http://adamziaja.com
 
 from scapy.all import *
-from termcolor import colored
+from termcolor import colored # sudo apt-get update && sudo apt-get install -y python-termcolor
 
 i = 0
 
