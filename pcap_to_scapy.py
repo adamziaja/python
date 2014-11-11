@@ -5,7 +5,6 @@
 
 # (C) 2014 Adam Ziaja <adam@adamziaja.com> http://adamziaja.com
 
-import sys
 from scapy.all import *
 
 i = 0
