@@ -6,3 +6,5 @@ my simple python scripts
     Python 2.7.6
     $ /usr/bin/env python3 --version
     Python 3.4.0
+    $ date +%Y-%m-%d
+    2014-11-11
