@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Passive scan for WiFi networks
+# WiFi SSID sniffer (passive)
 
 # (C) 2014 Adam Ziaja <adam@adamziaja.com> http://adamziaja.com
 
