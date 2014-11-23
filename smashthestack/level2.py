@@ -17,7 +17,7 @@ uid=602(level3) gid=604(level2) groups=604(level2),615(nosu)
 
 import os
 
-level2 = 'fsckmelogic '
+level2 = 'fsckmelogic ' # strings level2
 nop = '\x90'
 '''
 xor     eax, eax
