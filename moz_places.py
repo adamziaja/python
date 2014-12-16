@@ -22,12 +22,10 @@ font-size: 12px;
 <body>
 <table cellpadding="5" cellspacing="0" border="1">
 <tr><th>title</th><th>url</th><th>last_visit_date</th><tr>'''
-for row in \
-    c.execute('SELECT title, url, datetime("1379767479983000"/1000000,"unixepoch","localtime") FROM moz_places ORDER BY id DESC'
-              ):
+for row in c.execute('SELECT title, url, datetime(last_visit_date/1000000,"unixepoch","localtime") FROM moz_places ORDER BY id DESC'):
     title = row[0]
     url = row[1]
-    datetime = row[2]
+    datetime = str(row[2])
     if title is None:
         title = ''
     print ('<tr><td>' + title + '</td><td><a href="' + url
