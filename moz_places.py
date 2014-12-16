@@ -25,13 +25,14 @@ font-size: 12px;
 for row in c.execute('SELECT title, url, datetime(last_visit_date/1000000,"unixepoch","localtime") FROM moz_places ORDER BY id DESC'):
     title = row[0]
     url = row[1]
-    datetime = str(row[2])
+    datetime = row[2]
     if title is None:
         title = ''
+    if datetime is None:
+        datetime = ''
     print ('<tr><td>' + title + '</td><td><a href="' + url
            + '" target="_blank" rel="noreferrer">' + url
-           + '</a></td><td>' + datetime + '</td></tr>').encode('utf-8'
-            ).strip()
+           + '</a></td><td>' + datetime + '</td></tr>').encode('utf-8').strip()
 print '''</table>
 </body>
 </html>'''
