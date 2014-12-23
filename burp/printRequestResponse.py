@@ -7,7 +7,7 @@ class BurpExtender(IBurpExtender, IHttpListener):
 
 	def registerExtenderCallbacks(self, callbacks):
 		self._callbacks = callbacks
-		callbacks.setExtensionName("Request & Response")
+		callbacks.setExtensionName('Request & Response')
 		callbacks.registerHttpListener(self)
 		return
 
@@ -17,6 +17,8 @@ class BurpExtender(IBurpExtender, IHttpListener):
 			for line in messageInfo.getRequest().tostring().splitlines():
 				if len(line) == 0:
 					break
+				elif line.startswith('Authorization'):
+					print 'Authorization: [...]'
 				else:
 					print line
 			
