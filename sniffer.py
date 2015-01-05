@@ -9,6 +9,7 @@ from scapy.all import *
 
 def Handler(pkt):
     # your code
-    print pkt.show()
+    #print pkt.show()
+    print pkt.command()
 
 sniff(iface="eth0", count=0, prn=Handler, store=0)
