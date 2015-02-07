@@ -26,3 +26,4 @@ print cmd
 s.send(cmd)
 
 s.close()
+# nc IP 6200
