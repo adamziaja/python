@@ -4,6 +4,8 @@
 # script-kiddie equipment
 # this is my ability to think "outside the box" ;)
 
+# part 2: https://raw.githubusercontent.com/adamziaja/bash/master/intruder.sh
+
 # (C) 2015 Adam Ziaja <adam@adamziaja.com> http://adamziaja.com
 
 import os
