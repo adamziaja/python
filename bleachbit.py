@@ -27,10 +27,11 @@ for file in os.listdir('.'): # https://github.com/az0/bleachbit/tree/master/clea
             print option.find('description').text
 
             for action in option.iter('action'):
-                if 'path' in action.attrib:
-                    print action.attrib['path']
-                else:
-                    for action in option.iter('action'):
-                        print action.attrib
+                print action.attrib
+                #if 'path' in action.attrib:
+                #    print action.attrib['path']
+                #else:
+                #    for action in option.iter('action'):
+                #        print action.attrib
     print
 # https://gist.github.com/adamziaja/34e6dea311c166bcd506
