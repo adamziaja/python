@@ -6,10 +6,11 @@
 import re
 
 # LogFormat "%h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" combined
-regex = '([(\d\.)]+) (\w+|-) (\w+|-) \[(.*?)\] "(.*?)" (\d+) (\d+|-) "(.*?)" "(.*?)"'
+regex = '([(\d\.)]+) (\w|-) (\w|-) \[(.*?)\] "(.*?)" (\d+) (\d+|-) "(.*?)" "(.*?)"'
 
-with open('/var/log/access.log') as f:
+with open('/var/log/apache2/access.log') as f:
 	for line in f:
+		print line,
 		print re.match(regex, line).groups()
 		hostname = re.match(regex, line).groups()[0] # %h	Remote hostname.
 		# re.match(regex, line).groups()[1] # %l	Remote logname (from identd, if supplied).
@@ -21,3 +22,4 @@ with open('/var/log/access.log') as f:
 		referer = re.match(regex, line).groups()[7] # %{Referer}i
 		useragent = re.match(regex, line).groups()[8] # %{User-Agent}i
 		print hostname, time, request, status, referer, useragent
+		print
