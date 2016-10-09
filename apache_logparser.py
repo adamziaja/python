@@ -6,6 +6,8 @@
 import re
 
 # LogFormat "%h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" combined
+# 1.3.3.7 - - [09/Oct/2016:13:37:00 +0200] "GET / HTTP/1.1" 200 18380 "-" "curl/7.26.0"
+# ('1.3.3.7', '-', '-', '09/Oct/2016:13:37:00 +0200', 'GET / HTTP/1.1', '200', '18380', '-', 'curl/7.26.0')
 regex = '([(\d\.)]+) (\w|-) (\w|-) \[(.*?)\] "(.*?)" (\d+) (\d+|-) "(.*?)" "(.*?)"'
 
 with open('/var/log/apache2/access.log') as f:
